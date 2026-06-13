@@ -30,7 +30,7 @@
 
 برای اجرایِ این پروژه در سیستمِ خود، کافیست مخزن را Clone کرده و پوشه اصلی را در VS Code باز کنید.
 
----**توسعه‌دهنده:** عباس نوری (Abbas Nori)
-ایمیل: [abbas.nori.p@gmail.com](mailto:abbas.nori.p@gmail.com) | [لینکدین](https://www.linkedin.com/in/abbas-nori)| [لینکدین](https://www.linkedin.com/in/abbas-nori)
+**توسعه‌دهنده:** عباس نوری (Abbas Nori)
+ایمیل: [abbas.nori.p@gmail.com](mailto:abbas.nori.p@gmail.com) | [لینکدین](https://www.linkedin.com/in/abbas-nori)
 
 </div>
