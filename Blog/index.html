@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Shayan Namayandeh">
+    <title>ایران کردیت</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+    <meta name="apple-mobile-web-app-title" content="Iran Credit">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/src/style.css">
+</head>
+<body>
+
+    <!-- navbar -->
+    <header>
+        <nav class="navbar navbar-expand-xl fixed-top custom-navbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6 right">
+                        <div class="logo align-items-lg-center">
+                            <a href="index.php" title="ایران کردیت">
+                                <img width="200" src="assets/img/Logo.svg" alt="ایران کردیت">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7 col-6">
+                        <div class="collapse navbar-collapse left flex-lg-row" id="navbarSupportedContent">
+                            <div class="top flex-lg-row">
+                                <ul class="navbar-nav items">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.php">خانه</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            لیست خدمات
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">پرداخت های بین المللی</a></li>
+                                            <li><a class="dropdown-item" href="#">پرداخت شهریه دانشجویی</a></li>
+                                            <li><a class="dropdown-item" href="#">افتتاح حساب حضوری و غیر حضوری</a></li>
+                                            <li><a class="dropdown-item" href="#">گیفت کارت</a></li>
+                                            <li><a class="dropdown-item" href="#">تلگرام</a></li>
+                                            <li><a class="dropdown-item" href="#">یوتیوب</a></li>
+                                            <li><a class="dropdown-item" href="#">کارت اعتباری فیزیکی و مجازی</a></li>
+                                            <li><a class="dropdown-item" href="#">خرید کالا از ترکیه</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">تماس با ما</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">درباره ما</a>
+                                    </li>
+                                </ul>
+                                <form class="form">
+                                    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    <input aria-label="Search" placeholder="جستجوی خدمات ، مقالات و...">
+                                </form>
+                            </div>
+                            <div class="bottom flex-lg-row">
+                                <div class="phone">
+                                    <a href="tel:02126379917">
+                                        <span>02126379917</span>
+                                        <i class="fa fa-phone"></i>
+                                    </a>
+                                </div>
+                                <div class="log-in">
+                                    <a target="_blank" title="ورود و ثبت نام در ایران کردیت" href="panel/login.php">
+                                        <span>ورود / ثبت نام</span>
+                                        <i class="fa-regular fa-user"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- navbar -->
+
+    <!-- slide navbar -->
+    <div class="slide-navbar fixed-top">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.php" title="ایران کردیت">
+                    <img width="200" src="assets/img/Logo.svg" alt="ایران کردیت">
+                </a>
+            </div>
+            <button class="menu-button ms-0" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+        <div class="dropdown" id="dropdownMenu">
+            <button class="close-button" onclick="toggleMenu()">&times;</button>
+            <div class="items">
+                <a href="index.php"> خانه </a>
+                <a href="#"> لیست خدمات </a>
+                <a href="#"> تماس با ما </a>
+                <a href="#"> درباره ما </a>
+            </div>
+            <form class="form">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input aria-label="Search-Mobile" placeholder="جستجوی خدمات ، مقالات و...">
+            </form>
+            <div class="phone">
+                <a href="tel:<?php echo getSetting('contact_phone0'); ?>">
+                    <span><?php echo getSetting('contact_phone0'); ?>02126379917</span>
+                    <i class="fa fa-phone"></i>
+                </a>
+            </div>
+            <div class="log-in">
+                <a target="_blank" title="ورود و ثبت نام" href="panel/login.php">
+                    <span>ورود / ثبت نام</span>
+                    <i class="fa-regular fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end slide navbar -->
+
+
+
+    <main>
+        <div class="container-fluid">
+            <div class="blog">
+                <div class="row first-img">
+                    <div class="cards">
+                        <div class="card">
+                            <img src="./assets/img/what-is-telegram-stars-1-768x614.webp" alt="">
+                        </div>
+                        <div class="card">
+                            <img src="./assets/img/Musk-empire-768x614.webp" alt="">
+                        </div>
+                        <div class="card">
+                            <img src="./assets/img/hamster-1-768x540.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="popular">
+                        <li>
+                            <img src="./assets/img/folder.png" alt="">
+                            <p>دسته‌های پرمخاطب</p>
+                        </li>
+                        <div class="links">
+                            <a href="">ارز های دیجیتال</a>
+                            <a href="">خرید کالا از سایت های خارجی</a>
+                            <a href="">اکانت های خارجی</a> <br> <br>
+                            <a href="">دانستنی های درآمد ارزی و فریلنسری</a> 
+                            <a href="">حساب های بین المللی</a> <br> <br>
+                            <a href="">دانستنی های گیفت کارت</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="news">
+                        <h6>پیشنهادی و منتخب سردبیر</h6>
+                        <h3>برگزیده آخرین اخبار و مقالات</h3>
+                        <div class="cards">
+                            <div class="card">
+                                <div class="top">
+                                    <img src="./assets//img/what-is-gift-card-415x285.webp" alt="">
+                                </div>
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href=""> دانستنی های گیفت کارت</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">گیفت کارت چیست؟ کاربرد و انواع گیفت کارت</a>  
+                                    </div>                                        
+                                    <p>گیفت کارت چیست؟ این کارت‌ها چه کاربردی دارند؟ چرا خرید گیفت کارت تا این حد اهمیت پیدا کرده است؟ خرید از فروشگاه‌های خارجی و پرداخت‌های بین‌المللی به دلیل تحریم ایران...</p>                     
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="top">
+                                    <img src="./assets/img/what-is-telegram-premium-01-415x285.webp" alt="">
+                                </div>
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href="">اکانت های خارجی</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">گیفت کارت اپل چیست؟ آشنایی0تا100با گیفت کارت آیتونز</a>
+                                    </div>                                     
+                                    <p>حتما تاکنون برای شما هم پیش آمده که بخواهید از اپ استور خرید کنید، اما به دلیل تحریم‌های موجود و عدم دسترسی به حساب‌های بین المللی برای پرداخت هزینه آن...</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="top">
+                                    <img src="./assets/img/btc-mobile-mining-tutorial-415x285.webp" alt="">
+                                </div>
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href="">استخراج ارزدیجیتال</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">آموزش دریافت گیفت کارت رایگان اپل با سایت و اپلیکیشن</a>  
+                                    </div>  
+                                    <p>خرید گیفت کارت یا استفاده از گیفت کارت رایگان اپل از بهترین راه‌ها برای استفاده از تمام خدماتی است که کمپانی Apple برای تبلت، تلفن همراه و لپ‌تاپ‌هایش ارائه می‌دهد....</p>                        
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="top">
+                                    <img src="./assets/img/what-is-bitcoin-support3-415x285.webp" alt="">
+                                </div>
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href="">آموزش ارزدیجیتال</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">پشتوانه بیت کوین چیست؟ تأثیر تکنولوژی بلاکچین بر مالیات و اقتصاد</a>   
+                                    </div>   
+                                    <p>هر پولی، یک پشتوانه دارد. بیت کوین، اولین و پراستفاده‌ترین ارز دیجیتال دنیا، پیش‌فرض‌های ذهن بسیاری از افراد در مورد پشتوانه پول‌ها به هم ریخته است. بیت کوین برخلاف ارزها</p>                       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row document">
+                    <div class="col-lg-9 col-12">
+                        <div class="document-right">
+                            <li>
+                                <img src="./assets/img/file.png" alt="">
+                                <h4> آخرین مطالب بلاگ ایران کردیت</h4>
+                            </li>
+                            <div class="cards">
+                                <div class="crad">
+                                    <img src="./assets/img/The-best-Nintendo-Switch-games_11zon-415x285.webp" alt="">
+                                    <a href="">معرفی 25 مورد از بهترین بازی‌های نینتندو سوییچ در ژانرهای مختلف</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/The-Best-SEO-Tools-Every-SEO-Professional-Should-Know-415x285.webp" alt="">
+                                    <a href="">بهترین ابزارهای سئو که هر متخصص سئو باید آن‌ها را بشناسد (به همراه قیمت)</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/Factors-affecting-the-time-it-takes-to-transfer-cryptocurrency-to-a-hardware-wallet-415x285.webp" alt="">
+                                    <a href="">عوامل موثر بر مدت زمان انتقال ارز دیجیتال به کیف پول سخت افزاری</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/Best-IMDB-Movies-You-Must-Watch-415x285.webp" alt="">
+                                    <a href="">بهترین فیلم های IMDB که حتما باید ببینید (20 فیلم برتر) </a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/what-is-expedia-website-1-415x285.webp" alt="">
+                                    <a href="">سایت expedia چیست؟ آشنایی با سایت محبوب گردشگران</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/What-is-Telegram-Boost-and-what-features-does-it-have-1-415x285.webp" alt="">
+                                    <a href="">بوست تلگرام چیست و چه قابلیت‌هایی دارد؟</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/what-is-SEOClerk-1-415x285.webp" alt="">
+                                    <a href="">سایت SEOClerk چیست؟ کسب درآمد دلاری از سئو کلرک</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/what-is-sketchfab-1-415x285.webp" alt="">
+                                    <a href="">سایت Sketchfab چیست؟ کسب درآمد دلاری از Sketchfab  </a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/the-best-artificial-intelligence-to-improve-english-415x285.webp" alt="">
+                                    <a href="">بهترین هوش مصنوعی برای تقویت زبان انگلیسی 2025</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/best-characters-in-the-game-valorant-415x285.webp" alt="">
+                                    <a href="">بهترین کاراکترهای بازی ولورانت برای افزایش رنک 2025</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/multisig-wallet-415x285.webp" alt="">
+                                    <a href="">کیف پول چند امضایی چیست و انواع آن کدامند؟</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/ai-for-interior-design-415x285.webp" alt="">
+                                    <a href="">معرفی ۱۲ مورد از بهترین برنامه‌های هوش مصنوعی برای طراحی دکوراسیون داخلی</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/Tips-for-increasing-your-score-in-PlayStation-games-415x285.webp" alt="">
+                                    <a href="">بهترین ترفندها برای افزایش امتیاز در بازی‌های پلی استیشن</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/30-of-the-best-Minecraft-skins-you-should-know-1-415x285.webp" alt="">
+                                    <a href="">۳۰ تا از بهترین اسکین‌ های ماین کرافت که حتما باید بشناسید!</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/use-mastercard-in-iran-1-415x285.webp" alt="">
+                                    <a href="">آیا مستر کارت در ایران قابل استفاده است؟ راهکارهای دریافت و استفاده</a>
+                                </div>
+                                <div class="crad">
+                                    <img src="./assets/img/what-is-Dall-E-415x285.webp" alt="">
+                                    <a href="">هوش‌ مصنوعی Dall-E چیست؟</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-12">
+                        <div class="document-left">
+                            <div class="quick">
+                                <h4>دسترسی سریع</h4>
+                                <div class="links">
+                                    <a href="">نقد کردن درآمد ارزی</a>
+                                    <a href="">خرید vps</a>
+                                    <a href="">خرید از ترندیول</a> <br>
+                                    <a href="">پرداخت پی پال</a>
+                                    <a href="">خرید گیفت کارت</a>
+                                    <a href="">خرید ارز دیجیتال</a> <br>
+                                    <a href="">خرید شماره مجازی</a>
+                                </div>
+                            </div>
+                            <div class="banner">
+                                <img src="./assets/img/banner-giftcard.webp" alt="">
+                                <img src="./assets/img/banner-payments.webp" alt="">
+                                <img src="./assets/img/banner-shopping.webp" alt="">
+                                <img src="./assets/img/banner-wallets.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="crypto">
+                        <div class="cards">
+                            <div class="card title">
+                                <img src="./assets/img/feature-6.svg" alt="">
+                                <div class="bottom">
+                                    <h2>اخبار رمزارزها</h2>
+                                    <p>زودتر از بقیه از آخرین اخبار مطلع شو</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/img/Reactivation-of-the-cryptocurrency-purchase-portal-415x285.webp" alt="">
+                                <div class="bottom">
+                                    <div class="title">
+                                        <a href="">فعال‌سازی مجدد درگاه خرید رمزارز ایرانیکارت</a>
+                                    </div>                                    
+                                    <p>در روزهای اخیر، درگاه خرید رمزارز ایرانیکارت، یکی از بزرگ‌ترین پلتفرم‌های رمزارزی ایران، به دلیل محدودیت‌های نظارتی غیرفعال شده بود که این مسئله نگرانی بسیاری از کاربران را به همراه…</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/img/آموزش-نحوه-شارژ-کیف-پول-ریالی-ایرانیکارت-با-واریز-شناسه-دار-415x285.webp" alt="">
+                                <div class="bottom">
+                                    <div class="title">
+                                        <a href="">آموزش نحوه شارژ کیف پول ریالی با واریز شناسه دار</a>
+                                    </div>                                      
+                                    <p>اگرچه در حال حاضر واریز از طریق درگاه پرداخت برای شارژ و خرید ارزهای دیجیتال در ایرانیکارت و سایر صرافی‌های ایرانی مسدود شده‌ است، اما شما می‌توانید به کمک روش…</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/img/american-election-and-cryto-415x285.webp" alt="">
+                                <div class="bottom">
+                                    <div class="title">
+                                        <a href="">تاثیر انتخابات آمریکا بر بازار ارزهای دیجیتال</a>
+                                    </div>                                      
+                                    <p>انتخابات ریاست جمهوری آمریکا یکی از مهم‌ترین رویدادهای جهان است و می‌تواند تصمیمات و رویکرد سیاسی اقتصادی آمریکا را به کلی تغییر دهد. همانطور که جامعه رمزارزها انتظار دارد تا…</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="crypto bg-white">
+                        <div class="cards">
+                            <div class="card title">
+                                <img src="./assets/img/feature-5.svg" alt="">
+                                <div class="bottom">
+                                    <h2>پربازدیدترین مطالب</h2>
+                                    <p>پربازدیدترین مطالب مجله ایران کردیت را دنبال کنید</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/img/the-best-website-to-download-from-Instagram-1-415x285.webp" alt="">
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href="">تبلیغات انلاین</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">بهترین سایت های دانلود از اینستاگرام رایگان</a>
+                                    </div>                               
+                                    <p>در دنیای دیجیتال امروز، اینستاگرام به یکی از محبوب‌ترین پلتفرم‌های اشتراک‌گذاری تصاویر و ویدئو تبدیل شده است. باتوجه‌به حجم بی‌پایان محتوا در این شبکه اجتماعی، بسیاری از کاربران به دنبال…</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/img/future-of-Shiba-cryptocurrency-415x285.webp" alt="">
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href=""> آینده ارزهای دیجیتال</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">آینده شیبا اینو -پیش بینی قیمت SHIB – بروزرسانی ۲۰۲۴</a>
+                                    </div>                                    
+                                    <p>شیبا اینو دومین رمزارز بازار میم‌کوین‌ها از نظر ارزش بازار است که جامعه طرف‌دار مختص به خود را دارد. این ارز دیجیتال نیز به تقلید از برترین میم‌کوین یعنی دوج‌کوین…</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/img/DOGECOIN-415x285.webp" alt="">
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href="">آینده ارزهای دیجیتال</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">آینده دوج کوین؛ پیش بینی قیمت دوج کوین تا سال 2030</a>
+                                    </div> 
+                                    <p>همچنان که به پیشوازی آینده کریپتو می‌رویم، برخی از رمزارزهای موجود نظیر دوج کوین به طور جدی‌تری مورد توجه قرار می‌گیرند؛ رمزارزی که در ابتدای راه‌اندازی صرفا یک شوخی بود….
+                                        آموزش ساخت شماره مجازی رایگان
+                                         اکانت های خارجی
+                                        آموزش</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="crypto">
+                        <div class="cards">
+                            <div class="card title">
+                                <img src="./assets/img/feature-4.svg" alt="">
+                                <div class="bottom">
+                                    <h2>پربحث‌ترین مطالب</h2>
+                                    <p>پربحث‌ترین مطالب مجله ایرانیکارت را دنبال کنید</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/img/Tonkeeper-wallet-415x285.webp" alt="">
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href="">امنیت ارزدیجیتال</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">آموزش گام به گام کیف پول تون کیپر Tonkeeper</a>
+                                    </div>
+                                    <p>تون کیپر (Ton Keeper) کیف پول اختصاصی ارز دیجیتال تون (TON) است که این روزها به دلیل همکاری‌های بلاکچین تون با بازی‌های تلگرامی مانند نات کوین، بسیار محبوب شده است….</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/img/Wrong-transfer-of-cryptocurrency-and-its-solution-415x285.webp" alt="">
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href="">آموزش ارزدیجیتال</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">انتقال اشتباه ارز دیجیتال و راهکار آن</a>
+                                    </div>
+                                    <p>فرض کنید سرمایه ای که مدت‌ها برای جمع‌آوری و ذخیره آن زحمت کشیده‌اید، به ناگهان و تنها به‌خاطر یک اشتباه کوچک به آدرس اشتباهی منتقل شود؛ تصور دردناکی است! تا…</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/img/how-make-a-paypal-account.webp" alt="">
+                                <div class="bottom">
+                                    <li>
+                                        <i class="fa-regular fa-newspaper"></i>
+                                        <a href="">حساب های بین المللی</a>
+                                    </li>
+                                    <div class="title">
+                                        <a href="">چگونه paypal بسازیم؟</a>
+                                    </div>
+                                    <p>با توجه به پیشرفت تکنولوژی، برقراری روابط اقتصادی و نقل و انتقالات مالی با کشورهای دیگر وابسته به اینترنت می‌باشد. یکی از مهم‌ترین لازمه‌های روابط مالی بین‌المللی ساخت اکانت پی…
+                                        نحوه خرید از آمازون خرید کالا از سایت های خارجی
+                                        نحو</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row conection">
+                    <div class="col-sm-6 col-12">
+                        <div class="conection-right">
+                            <h2>جهت دریافت آخرین اخبار و مقالات به خبرنامه بپیوندید.</h2>
+                            <p>آخرین اخبار دنیای ارزهای دیجیتال، شبکه پرداخت ارزی، کسب درآمد دلاری، تکنولوژی و دنیای گیم و سرگرمی در خبرنامه ایرانیکارت
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-12">
+                        <div class="conection-left">
+                            <h6>ایمیل خود را جهت عضویت وارد نمایید</h6>
+                            <div class="email">
+                                <div class="form">
+                                    <p>ایمیل</p>
+                                    <input type="email" placeholder="ایمیل را وارد کنید">
+                                </div>
+                                <a href="">عضویت در خبرنامه</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row new">
+                    <div class="new-title">
+                        <div class="title-right">
+                            <img src="./assets/img/video.png" alt="">
+                            <h3> جدیدترین‌ ویدئو‌ها و پادکست‌ها</h3>
+                        </div>
+                        <div class="title-left">
+                            <a href="">
+                                <i class="fa fa-filter"></i>
+                                مرتب سازی مطالب
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 col-12">
+                        <div class="new-right">
+                            <div class="box">
+                                <img src="./assets/img/trust-min-90x90.webp" alt="">
+                                <p>کیف پول تراست ولت + آموزش جامع نصب و راه اندازی</p>
+                            </div>
+                            <div class="box">
+                                <img src="./assets/img/iranicredit-sign-in-90x90.webp" alt="">
+                                <p>آموزش نحوه ثبت نام و احراز هویت در ایرانیکارت</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-sm-6 col-12">
+                        <div class="new-left">
+                            <img src="./assets/img/iranicredit-sign-in.webp" alt="">
+                            <h2>آموزش نحوه ثبت نام و احراز هویت در ایرانیکارت</h2>
+                            <div class="new-left-title">
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-newspaper"></i>
+                                        اخبار
+                                    </a>
+                                    <p>زمان انتشار سه شنبه, 12 بهمن 1400</p>
+                                </li>
+                                <span>اگر تمایل دارید از خدمات ایرانیکارت مثل خرید و فروش ارز دیجیتال، افتتاح حساب پی پال، خرید کارت‌های اعتباری مختلف، خرید کیف پول الکترونیک، پرداخت در سایت‌‌های خارجی، نقد کردن…</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="support">
+                    <h3>۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</h3>
+                    <li>
+                        <span>تلفن پشتیبانی:</span> &ensp;
+                        <a href=""> 02126379917 </a> &ensp;
+                        <span>--</span>&ensp;
+                        <a href=""> 02126379918 </a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <!-- footer -->
+    <footer class="container-fluid footer">
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-3 col-sm-12 col-12">
+                    <div class="footer-item">
+                        <a href="index.php" title="ایران کردیت">
+                            <img class="logo-footer" src="assets/img/Logo.svg" alt="لوگو ایران کردیت">
+                        </a>
+                        <div class="footer-item-info">
+                            <div class="information">
+                                <ul>
+                                    <li><i class="fas fa-phone"></i><a href="tel:02126379917"> 02126379917 </a></li>
+                                    <li><i class="fas fa-phone"></i><a href="tel:02126379918"> 02126379918 </a></li>
+                                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@irancredits.com">
+                                        info@irancredits.com </a></li>
+                                    <li><i class="fas fa-location-dot"></i>آدرس : تهران، نیاوران، روبروی پارک نیاوران، اطلس مال، ورودی اداری، طبقه A1، واحد 22
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footer-item">
+                        <span class="footer-title"> لینک های مفید </span>
+                        <div class="footer-item-links">
+                            <ul>
+                                <li><a href="">خانه</a></li>
+                                <li><a href="">همکاری</a></li>
+                                <li><a href="">تماس با ما</a></li>
+                                <li><a href="">درباره ما</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footer-item">
+                        <span class="footer-title"> خدمات ایران کردیت </span>
+                        <ul>
+                            <li><a href=""> پرداخت های بین المللی </a></li>
+                            <li><a href=""> پرداخت شهریه دانشجویی </a></li>
+                            <li><a href="">تلگرام</a></li>
+                            <li><a href=""> افتتاح حساب حضوری و غیر حضوری </a></li>
+                            <li><a href=""> گیفت کارت </a></li>
+                            <li><a href=""> یوتیوب </a></li>
+                            <li><a href=""> کارت اعتباری فیزیکی و مجازی </a></li>
+                            <li><a href=""> خرید کالا از ترکیه </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <span class="footer-title">مجوز ها</span>
+                    <div class="row">
+                        <a referrerpolicy='origin' target='_blank'
+                        href='#'>
+                            <img referrerpolicy='origin' src="assets/img/E-Namad.png" alt="نماد اعتماد (اینماد)"
+                                style='cursor:pointer' code='aX1xtEdHgAbNb7GRDZX1TDeQackFg4sr'>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top">
+            <div class="col-12 text-center">
+                <p>تمامی حقوق مادی و معنوی این وب سایت متعلق به ایران کردیت می باشد. طراحی شده توسط
+                    <a href="https://doroosamooz.ir">شایان نماینده</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

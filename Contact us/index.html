@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Shayan Namayandeh">
+    <title>ایران کردیت</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+    <meta name="apple-mobile-web-app-title" content="Iran Credit">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/src/style.css">
+</head>
+<body>
+
+    <!-- navbar -->
+    <header>
+        <nav class="navbar navbar-expand-xl fixed-top custom-navbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6 right">
+                        <div class="logo align-items-lg-center">
+                            <a href="index.php" title="ایران کردیت">
+                                <img width="200" src="assets/img/Logo.svg" alt="ایران کردیت">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7 col-6">
+                        <div class="collapse navbar-collapse left flex-lg-row" id="navbarSupportedContent">
+                            <div class="top flex-lg-row">
+                                <ul class="navbar-nav items">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.php">خانه</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            لیست خدمات
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">پرداخت های بین المللی</a></li>
+                                            <li><a class="dropdown-item" href="#">پرداخت شهریه دانشجویی</a></li>
+                                            <li><a class="dropdown-item" href="#">افتتاح حساب حضوری و غیر حضوری</a></li>
+                                            <li><a class="dropdown-item" href="#">گیفت کارت</a></li>
+                                            <li><a class="dropdown-item" href="#">تلگرام</a></li>
+                                            <li><a class="dropdown-item" href="#">یوتیوب</a></li>
+                                            <li><a class="dropdown-item" href="#">کارت اعتباری فیزیکی و مجازی</a></li>
+                                            <li><a class="dropdown-item" href="#">خرید کالا از ترکیه</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">تماس با ما</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">درباره ما</a>
+                                    </li>
+                                </ul>
+                                <form class="form">
+                                    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    <input aria-label="Search" placeholder="جستجوی خدمات ، مقالات و...">
+                                </form>
+                            </div>
+                            <div class="bottom flex-lg-row">
+                                <div class="phone">
+                                    <a href="tel:02126379917">
+                                        <span>02126379917</span>
+                                        <i class="fa fa-phone"></i>
+                                    </a>
+                                </div>
+                                <div class="log-in">
+                                    <a target="_blank" title="ورود و ثبت نام در ایران کردیت" href="panel/login.php">
+                                        <span>ورود / ثبت نام</span>
+                                        <i class="fa-regular fa-user"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- navbar -->
+
+    <!-- slide navbar -->
+    <div class="slide-navbar fixed-top">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.php" title="ایران کردیت">
+                    <img width="200" src="assets/img/Logo.svg" alt="ایران کردیت">
+                </a>
+            </div>
+            <button class="menu-button ms-0" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+        <div class="dropdown" id="dropdownMenu">
+            <button class="close-button" onclick="toggleMenu()">&times;</button>
+            <div class="items">
+                <a href="index.php"> خانه </a>
+                <a href="#"> لیست خدمات </a>
+                <a href="#"> تماس با ما </a>
+                <a href="#"> درباره ما </a>
+            </div>
+            <form class="form">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input aria-label="Search-Mobile" placeholder="جستجوی خدمات ، مقالات و...">
+            </form>
+            <div class="phone">
+                <a href="tel:<?php echo getSetting('contact_phone0'); ?>">
+                    <span><?php echo getSetting('contact_phone0'); ?>02126379917</span>
+                    <i class="fa fa-phone"></i>
+                </a>
+            </div>
+            <div class="log-in">
+                <a target="_blank" title="ورود و ثبت نام" href="panel/login.php">
+                    <span>ورود / ثبت نام</span>
+                    <i class="fa-regular fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end slide navbar -->
+
+
+
+    <main>
+        <div class="container-fluid contact-us">
+            <div class="title">
+                <h1> تماس با ایران کردیت </h1>
+            </div>
+            <div class="row first">
+                <div class="col-xl-6">
+                    <div class="first-right">
+                        <h3>آدرس</h3>
+                        <li>
+                            <img src="./assets/img/google-maps.png" alt="">
+                            <p>تهران، نیاوران، روبروی پارک نیاوران، اطلس مال، ورودی اداری، طبقه A1، واحد 22</p>
+                        </li>
+                        <h3>راه های ارتباطی</h3>
+                        <li>
+                            <img src="./assets/img/Calling V3.svg" alt="">
+                            <a href="">02126379917</a>
+                        </li>
+                        <li>
+                            <img src="./assets/img/Calling V3.svg" alt="">
+                            <a href="">02126379918</a>
+                        </li>
+                        <div class="social">
+                            <h5>ما را در شبکه های اجتماعی دنبال کنید</h5>
+                            <li>
+                                <a href="#"><img src="./assets/img/instagram-.png" alt=""></a>
+                                <a href="#"><img src="./assets/img/whatsapp-.png" alt=""></i></a>
+                                <a href="#"><img src="./assets/img/telegram-.png" alt=""></i></a>
+                                <a href="#"><img src="./assets/img/youtube-.png" alt=""></i></a>
+                            </li>
+                        </div>
+                        <p> پست الکترونیک (ایمیل) <span>irancredit@gmail.com</span></p>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="first-left">
+
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </main>
+
+    
+    <!-- footer -->
+    <footer class="container-fluid footer">
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-3 col-sm-12 col-12">
+                    <div class="footer-item">
+                        <a href="index.php" title="ایران کردیت">
+                            <img class="logo-footer" src="assets/img/Logo.svg" alt="لوگو ایران کردیت">
+                        </a>
+                        <div class="footer-item-info">
+                            <div class="information">
+                                <ul>
+                                    <li><i class="fas fa-phone"></i><a href="tel:02126379917"> 02126379917 </a></li>
+                                    <li><i class="fas fa-phone"></i><a href="tel:02126379918"> 02126379918 </a></li>
+                                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@irancredits.com">
+                                        info@irancredits.com </a></li>
+                                    <li><i class="fas fa-location-dot"></i>آدرس : تهران، نیاوران، روبروی پارک نیاوران، اطلس مال، ورودی اداری، طبقه A1، واحد 22
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footer-item">
+                        <span class="footer-title"> لینک های مفید </span>
+                        <div class="footer-item-links">
+                            <ul>
+                                <li><a href="">خانه</a></li>
+                                <li><a href="">همکاری</a></li>
+                                <li><a href="">تماس با ما</a></li>
+                                <li><a href="">درباره ما</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footer-item">
+                        <span class="footer-title"> خدمات ایران کردیت </span>
+                        <ul>
+                            <li><a href=""> پرداخت های بین المللی </a></li>
+                            <li><a href=""> پرداخت شهریه دانشجویی </a></li>
+                            <li><a href="">تلگرام</a></li>
+                            <li><a href=""> افتتاح حساب حضوری و غیر حضوری </a></li>
+                            <li><a href=""> گیفت کارت </a></li>
+                            <li><a href=""> یوتیوب </a></li>
+                            <li><a href=""> کارت اعتباری فیزیکی و مجازی </a></li>
+                            <li><a href=""> خرید کالا از ترکیه </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <span class="footer-title">مجوز ها</span>
+                    <div class="row">
+                        <a referrerpolicy='origin' target='_blank'
+                        href='#'>
+                            <img referrerpolicy='origin' src="assets/img/E-Namad.png" alt="نماد اعتماد (اینماد)"
+                                style='cursor:pointer' code='aX1xtEdHgAbNb7GRDZX1TDeQackFg4sr'>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top">
+            <div class="col-12 text-center">
+                <p>تمامی حقوق مادی و معنوی این وب سایت متعلق به ایران کردیت می باشد. طراحی شده توسط
+                    <a href="https://doroosamooz.ir">شایان نماینده</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

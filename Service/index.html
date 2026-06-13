@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Shayan Namayandeh">
+    <title>ایران کردیت</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+    <meta name="apple-mobile-web-app-title" content="Iran Credit">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/src/style.css">
+</head>
+<body>
+
+    <!-- navbar -->
+    <header>
+        <nav class="navbar navbar-expand-xl fixed-top custom-navbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6 right">
+                        <div class="logo align-items-lg-center">
+                            <a href="index.php" title="ایران کردیت">
+                                <img width="200" src="assets/img/Logo.svg" alt="ایران کردیت">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7 col-6">
+                        <div class="collapse navbar-collapse left flex-lg-row" id="navbarSupportedContent">
+                            <div class="top flex-lg-row">
+                                <ul class="navbar-nav items">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.php">خانه</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            لیست خدمات
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">پرداخت های بین المللی</a></li>
+                                            <li><a class="dropdown-item" href="#">پرداخت شهریه دانشجویی</a></li>
+                                            <li><a class="dropdown-item" href="#">افتتاح حساب حضوری و غیر حضوری</a></li>
+                                            <li><a class="dropdown-item" href="#">گیفت کارت</a></li>
+                                            <li><a class="dropdown-item" href="#">تلگرام</a></li>
+                                            <li><a class="dropdown-item" href="#">یوتیوب</a></li>
+                                            <li><a class="dropdown-item" href="#">کارت اعتباری فیزیکی و مجازی</a></li>
+                                            <li><a class="dropdown-item" href="#">خرید کالا از ترکیه</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">تماس با ما</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">درباره ما</a>
+                                    </li>
+                                </ul>
+                                <form class="form">
+                                    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    <input aria-label="Search" placeholder="جستجوی خدمات ، مقالات و...">
+                                </form>
+                            </div>
+                            <div class="bottom flex-lg-row">
+                                <div class="phone">
+                                    <a href="tel:02126379917">
+                                        <span>02126379917</span>
+                                        <i class="fa fa-phone"></i>
+                                    </a>
+                                </div>
+                                <div class="log-in">
+                                    <a target="_blank" title="ورود و ثبت نام در ایران کردیت" href="panel/login.php">
+                                        <span>ورود / ثبت نام</span>
+                                        <i class="fa-regular fa-user"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- navbar -->
+
+    <!-- slide navbar -->
+    <div class="slide-navbar fixed-top">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.php" title="ایران کردیت">
+                    <img width="200" src="assets/img/Logo.svg" alt="ایران کردیت">
+                </a>
+            </div>
+            <button class="menu-button ms-0" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+        <div class="dropdown" id="dropdownMenu">
+            <button class="close-button" onclick="toggleMenu()">&times;</button>
+            <div class="items">
+                <a href="index.php"> خانه </a>
+                <a href="#"> لیست خدمات </a>
+                <a href="#"> تماس با ما </a>
+                <a href="#"> درباره ما </a>
+            </div>
+            <form class="form">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input aria-label="Search-Mobile" placeholder="جستجوی خدمات ، مقالات و...">
+            </form>
+            <div class="phone">
+                <a href="tel:<?php echo getSetting('contact_phone0'); ?>">
+                    <span><?php echo getSetting('contact_phone0'); ?>02126379917</span>
+                    <i class="fa fa-phone"></i>
+                </a>
+            </div>
+            <div class="log-in">
+                <a target="_blank" title="ورود و ثبت نام" href="panel/login.php">
+                    <span>ورود / ثبت نام</span>
+                    <i class="fa-regular fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end slide navbar -->
+
+
+
+    <main>
+        <div class="container-fluid service">
+            <div class="row psn">
+                <div class="col-xl-6 col-12">
+                    <h1>خرید گیفت کارت پلی استیشن PSN</h1>
+                    <h6>خرید گیفت کارت پلی استیشن PSN برای پرداخت آسان در پلی استیشن استور</h6>
+                    <p>با خرید گیفت کارت پلی استیشن PSN می‌توانید بدون نیاز به کارت های اعتباری، اکانت پلی استیشن خود را شارژ کرده از فروشگاه‌های مربوطه خرید کنید. درواقع گیفت کارت پلی استیشن، مناسب‌ترین راه برای شارژ اکانت و خرید از فروشگاه پلی استیشن است.</p>
+                    <p>از بازی کردن در کنسول های بازی ps4 و ps5 لذت می‌برید؟ با <a href="">خرید گیفت کارت</a> ps5 و ps4 وارد مرحله جدیدی از لذت شده و بدون محدودیت بازی کنید.</p>
+                    <span>همچنین ایران کردیت می‌تواند در کوتاه‌ترین زمان ممکن و بدون کوچک‌ترین دردسری، گیفت کارت شما را فعال کند. در ایرانیکارت عضو شوید، گیفت کارت پلی استیشن خود را سفارش داده و بلافاصله تحویل بگیرید!</span>
+                    <div class="information">
+                        <div class="box">
+                            <li>
+                                <span>وضعیت کارت</span>
+                                <img src="./assets/img/credit-card.png" alt="">
+                            </li>
+                            <p>موجود</p>
+                        </div>
+                        <div class="box">
+                            <li>
+                                <span>قابل ارائه در مبالغ</span>
+                                <img src="./assets/img/exchange.png" alt="">
+                            </li>
+                            <p>3 تا 150 $</p>
+                        </div>
+                        <div class="box">
+                            <li>
+                                <span>تحویل</span>
+                                <img src="./assets/img/clock.png" alt="">
+                            </li>
+                            <p>فوری از طریق ایمیل</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-12 service-left">
+                    <div class="ps-img">
+                        <img src="./assets/img/PlayStation.webp" alt="">
+                    </div>
+                    <li>
+                        <a href="">راهنمای فعالسازی گیفت کارت پلی استیشن </a>
+                        <i class="fa fa-arrow-up-right-from-square"></i>
+                    </li>
+                </div>
+            </div>
+            <div class="row purchase">
+                <div class="row selection">
+                    <div class="col-md-3">
+                        <p>نوع خدمات</p>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>playstation</option>
+                            <option value="1">Apple</option>
+                            <option value="2">Amazone</option>
+                            <option value="3">Paypal</option>
+                            <option value="4">Skype</option>
+                            <option value="5">Xbox</option>
+                          </select>
+                    </div>
+                    <div class="col-md-3">
+                        <p>میزان اعتبار</p>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>3 دلار آمریکا $</option>
+                            <option value="1">4 دلار آمریکا $</option>
+                            <option value="2">10 دلاز آمریکا $</option>
+                            <option value="3">25 دلار آمریکا $</option>
+                            <option value="4">50 دلار آمریکا $</option>
+                            <option value="5">75 دلار آمریکا $</option>
+                          </select>
+                    </div>
+                    <div class="col-md-3">
+                        <p>ریجن کارت</p>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>آمریکا</option>
+                            <option value="1">کانادا</option>
+                            <option value="2">امارت</option>
+                            <option value="3">قطر</option>
+                            <option value="4">آلمان</option>
+                            <option value="5">سوئد</option>
+                          </select>
+                    </div>
+                    <div class="col-md-3">
+                        <li>
+                            <p>قابل پرداخت نهایی</p>
+                            <span>3,942,900 ریال</span>
+                        </li>
+                        <button href="">
+                            ثبت سفارش
+                            <img src="./assets/img/flash.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="country">
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن استرالیا</span>
+                            <img src="./assets/img/australia.png" alt="">
+                        </button>
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن کانادا</span>
+                            <img src="./assets/img/canada.png" alt="">
+                        </button>
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن انگلیس</span>
+                            <img src="./assets/img/united-kingdom.png" alt="">
+                        </button>
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن امارات</span>
+                            <img src="./assets/img/united-arab-emirates.png" alt="">
+                        </button>
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن هند</span>
+                            <img src="./assets/img/india.png" alt="">
+                        </button>
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن کویت</span>
+                            <img src="./assets/img/kuwait.png" alt="">
+                        </button>
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن برزیل</span>
+                            <img src="./assets/img/round.png" alt="">
+                        </button>
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن ترکیه</span>
+                            <img src="./assets/img/turkey.png" alt="">
+                        </button>
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن آلمان</span>
+                            <img src="./assets/img/germany.png" alt="">
+                        </button>
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن ژاپن</span>
+                            <img src="./assets/img/japan.png" alt="">
+                        </button>                        
+                    </div>
+                    <div class="gift-card">
+                        <button>
+                            <span>گیفت کارت پلی استیشن هنگ کنگ</span>
+                            <img src="./assets/img/world.png" alt="">
+                        </button>                        
+                    </div>
+                </div>
+            </div>
+            <div class="row ps-gift">
+                <div class="col-xl-6 col-12">
+                    <div class="ps-gift-right">
+                        <img src="./assets/img/ps4-gift-card.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-6 col-12">
+                    <div class="ps-gift-left">
+                        <h1>مزایای استفاده از گیفت کارت PlayStation</h1>
+                        <ol>
+                            <li>خرید تم‌های آنلاین</li>
+                            <li>خرید بازی‌های پلی استیشن</li>
+                            <li>استفاده از تخفیف‌های بازی‌ها</li>
+                            <li>خرید موزیک از کمپانی بزرگ سونی</li>
+                            <li>خرید گیفت کارت پلاس برای بازی آنلاین</li>
+                            <li>پیش خرید یا Pre-Order بازی‌های پلی استیشن</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="row how-purchase">
+                <div class="col-xl-6 col-12">
+                    <div class="how-purchase-right">
+                        <h6>کجا از گیفت کارت پلی استیشن استفاده کنم؟</h6>
+                        <p>شرکت سونی، سازنده پلی استیشن، یکی از بزرگ‌ترین و پرطرفدارترین کمپانی‌های صنعت بازی و سرگرمی است. این کمپانی درست مانند تمام رقبای خود در این صنعت، با اضافه کردن ویژگی‌ها و امکانات ویژه به بازی‌های خود در تلاش بوده تا بتواند کسب درآمد داشته باشد.</p>
+                        <p>به همین دلیل، کاربرانی که تمایل به استفاده از این قابلیت‌ها دارند یا به شکل ویژه‌تری بازی می‌کنند، باید خرید درون برنامه‌ای داشته باشند.</p>
+                        <p>این کمپانی، برای آسان‌تر شدن مراحل خرید و استفاده از سرویس‌های خود برای کاربران، گیفت کارت پلی استیشن را ارائه کرده است. در نتیجه شما با خرید گیفت کارت ps4 و ps5 علاوه بر امکان خرید و دانلود جدیدترین بازی‌ها، می‌توانید به مجموعه‌ای از فیلم و سریال‌های جذاب هم دسترسی داشته باشید!</p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-12">
+                    <div class="how-purchase-left">
+                        <div class="box">
+                            <span>خرید بازی</span>
+                            <img src="./assets/img/game-controller.png" alt="">
+                        </div>
+                        <div class="box">
+                            <span>پرداخت درون بازی</span>
+                            <img src="./assets/img/credit-card.png" alt="">
+                        </div>
+                        <div class="box">
+                            <span>خرید فیلم و سریال</span>
+                            <img src="./assets/img/monitor.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row contents">
+                <div class="col-lg-3 col-12 contents-right">
+                    <div class="contents-title">
+                        <li>
+                            <span>فهرست مطالب</span>
+                            <img src="./assets/img/file.png" alt="">
+                        </li> 
+                    </div> 
+                    <ol>
+                        <li>
+                            <a href="">خرید گیفت کارت پلی استیشن</a>
+                        </li> 
+                        <li>
+                            <a href="">آشنایی با گیفت کارت PlayStation</a>
+                        </li>
+                        <li>
+                            <a href="">تفاوت گیفت کارت های پلی استیشن</a>
+                        </li>
+                        <li>
+                            <a href="">نحوه استفاده از گیفت کارت PS5، PS4</a>
+                        </li>
+                        <li>
+                            <a href="">آموزش خرید گیفت کارت پلی استیشن از ایران کردیت</a>
+                        </li>
+                        <li>
+                            <a href="">چگونه با گیفت کارت پلی استیشن خرید کنیم؟</a>
+                        </li>
+                    </ol>                 
+                </div>
+                <div class="col-lg-9 col-12 contents-left">
+                    <h3>خرید گیفت کارت پلی استیشن</h3>
+                    <p>به طور کلی، خرید گیفت کارت PSN برای تمام گیمرها و دارندگان کنسول‌ها ضروری است؛ در واقع بدون داشتن این کارت‌ها امکان خرید بازی و استفاده از خدمات متنوع شرکت سونی (sony) وجود ندارد.</p>
+                    <p>فرقی نمی‌کند که از کنسول بازی ps4 استفاده می‌کنید یا به‌تازگی کنسول بازی ps5 را خریداری کرده‌اید؛ به هر حال شما برای شارژ اکانت پلی استیشن خود و دسترسی به خدمات قسمت پلی استیشن نتورک، باید گیفت کارت مناسبی را خریداری کنید.</p>
+                    <p>اهمیت بالای این کارت‌ها باعث به وجود آمدن فروشگاه‌های مختلف در این زمینه شده که ایرانیکارت بهترین و محبوب‌ترین آن‌هاست. این فروشگاه معتبر به دلیل سابقه بالا و ارائه خدمات با‌کیفیت، محبوبیت خود را روزبه‌روز بیشتر می‌کند.</p>
+                    <h3>آشنایی با گیفت کارت PlayStation</h3>
+                    <p>دارندگان کنسول پلی استیشن برای انجام بهتر بازی‌ها و دسترسی به امکانات کامل این کنسول، باید به وب‌سایت PlayStation Network-PSN مراجعه کرده و برای دسترسی به محصولات و خدمات فروشگاه PlayStation در مرحله اول حساب PSN خود را شارژ کنند.</p>                
+                    <p>درست است که انجام این کار برای گیمرهای ایرانی با چالش‌های مختلفی همراه است، اما خرید گیفت کارت پلی استیشن این چالش‌ها را حل می‌کند. لازم به ذکر است که این کارت‌ها توسط شرکت سونی ارائه می‌شوند تا تمامی کاربران بدون هیچ مشکلی بتوانند حساب خود را شارژ کرده و از خدمات کنسول‌های بازی بهره ببرند.</p>
+                    <p>به بیانی ساده‌تر می‌توان عنوان کرد که گیفت کارت پلی استیشن (PlayStation GiftCard)، نوعی <span>کارت اعتباری</span> دیجیتالی دارای کد اختصاصی است که حروف و عدد دارد؛ همچنین گیفت کارت PS5 و PS4 یکسان بوده و به طور همزمان برای هر دو دستگاه کاربرد دارد. شما با خرید این کارت‌ها، می‌توانید به راحتی اعتبار موردنظرتان را به حساب پلی استیشن اضافه کرده و از آن برای خرید بازی، محتواهای دیجیتالی و دیگر خدماتی که در فروشگاه آنلاین PlayStation Store ارائه می‌شوند، استفاده کنید.</p>
+                    <h5>تفاوت گیفت کارت های پلی استیشن</h5>
+                    <p>گیفت کارت سونی در تنوع بالایی به کاربران ارائه می‌شود که این امر، تفاوت‌هایی در کاربرد آن‌ها ایجاد می‌کند. در واقع فرقی نمی‌کند که شما گیفت کارت آمریکا را خریداری کنید یا کانادا و یا هر کشور دیگر، به هر حال تمامی آن‌ها تفاوت‌های خاصی باهم دارند. قیمت گیفت کارت پلی استیشن یکی از تفاوت‌های مهم در زمان خرید است، اما در ادامه تفاوت این کارت‌ها را از لحاظ کاربرد بررسی می‌کنیم:</p>
+                </div>
+            </div>
+            <div class="row popular-card">
+                <h2>سایر کارت‌های محبوب</h2>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="./assets/img/xbox.webp" alt="">
+                        </div>
+                        <div class="title">
+                            <a href="">گیفت کارت ایکس باکس XBOX</a>
+                            <span>XBOX Gift Card</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="./assets/img/valorant.webp" alt="">
+                        </div>
+                        <div class="title">
+                            <a href="">گیفت کارت ولورانت Valorant</a>
+                            <span>Valorant Gift Card</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="./assets/img/steam.webp" alt="">
+                        </div>
+                        <div class="title">
+                            <a href="">خرید گیفت کارت استیم والت</a>
+                            <span>Steam Gift Card</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row question">
+                <div class="col-md-4 col-12">
+                    <div class="title">
+                        <div class="top">
+                            <p>سوالات خود را از ایرانیکارت بپرسید!</p>
+                            <h4>سوالات متداول</h4>
+                        </div>
+                        <div class="bottom">
+                            <p>اگر به مشاوره نیاز دارید، فرم درخواست را پر کنید.</p>
+                            <p>تا کارشناسان ما در سریع‌ترین زمان ممکن با شما تماس بگیرند</p>
+                            <li>
+                                <a href="">درخواست مشاوره </a>
+                                <img src="./assets/img/upload.png" alt="">
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-12">
+                    <div class="question-left">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    کارمزد خرید گیفت PSN چقدر است؟
+                                </button>
+                              </h2>
+                              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    خرید گیفت کارت playstation هیچ کارمزدی ندارد؛ شما می‌توانید این کارت را با کمترین هزینه از ایرانیکارت تهیه کنید.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    هزینه خرید گیفت کارت PS5 و PS4 چقدر است؟
+                                </button>
+                              </h2>
+                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    هزینه صدور این کارت‌ها بر اساس نرخ روز دلار و مبلغ گیفت کارت مورد نظر محاسبه می‌شود؛ در نتیجه غیر از هزینه دلاری کارت، هزینه دیگری مانند کارمزد یا… وجود ندارد.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingthree">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsethree" aria-expanded="false" aria-controls="collapsethree">
+                                    نحوه استفاده از کارت پلی استیشن چگونه است؟
+                                  </button>
+                                </h2>
+                                <div id="collapsethree" class="accordion-collapse collapse" aria-labelledby="headingthree" data-bs-parent="#accordionExample">
+                                  <div class="accordion-body">
+                                    پس از دریافت کد، می‌توانید آن را در حساب کاربری خود ریدیم (Redeem) کرده و به تمامی برنامه‌های موجود در فروشگاه پلی استیشن دسترسی داشته باشید.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingfour">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                      برای استفاده از گیفت کارت خریداری شده چقدر زمان داریم؟ 
+                                  </button>
+                                </h2>
+                                <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
+                                  <div class="accordion-body">
+                                    کارت‌ها تاریخ انقضا ندارند و شما می‌توانید هر زمان که تمایل داشتید به میزان موجودی کارت، اکانت خود را شارژ کرده یا با استفاده از آن پرداخت درون‌برنامه‌ای انجام دهید.
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item last">
+                                <h2 class="accordion-header" id="headingfive">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
+                                    کارت پلی استیشن برای کدام کشور (Region) صادر می‌شود؟
+                                  </button>
+                                </h2>
+                                <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample">
+                                  <div class="accordion-body">
+                                    در حال حاضر ایرانیکارت گیفت کارت PS5 و PS4 را با ریجن‌های کانادا، انگلیس، هنگ کنگ، آلمان، امارات، و برزیل صادر می‌کند؛ دقت کنید که ریجن کارت با اکانت شما مطابقت داشته باشد.
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="row experience">
+                <h2>تجربه خرید کاربران از ایرانیکارت</h2>
+                <div class="cards">
+                    <div class="card">
+                        <div class="title">
+                            <div class="title-right">
+                                <p>پوریا حاجی یوسفی</p>
+                                <span>قیمت مناسب‌تر</span>
+                            </div>
+                            <div class="title-left">
+                                <img src="./assets/img/smile.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="explain">
+                            <p>قیمت نسبت به بقیه سایت ها و خدماتتون منطقی بود تقریبا</p>
+                        </div>
+                        <div class="sign">
+                            <span>گیفت کارت پلی استیشن</span>
+                            <img src="./assets/img/game-controller.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="title">
+                            <div class="title-right">
+                                <p>حمیدرضا رباطی</p>
+                                <span>سرعت عمل در ارائه خدمات</span>
+                            </div>
+                            <div class="title-left">
+                                <img src="./assets/img/smile.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="explain">
+                            <p>خیلی سریع سوالایی که داشتم جواب داده شد و محصول به دستم رسید دم شما گرم</p>
+                        </div>
+                        <div class="sign">
+                            <span>گیفت کارت پلی استیشن</span>
+                            <img src="./assets/img/game-controller.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="title">
+                            <div class="title-right">
+                                <p>اصغر خالقی</p>
+                                <span>ارائه اطلاعات کافی و شفاف</span>
+                            </div>
+                            <div class="title-left">
+                                <img src="./assets/img/smile.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="explain">
+                            <p>کارشناس دقیقا چیزایی که میخواستم رو جواب داد و سرعت عملشونم خوب بود </p>
+                        </div>
+                        <div class="sign">
+                            <span>گیفت کارت پلی استیشن</span>
+                            <img src="./assets/img/game-controller.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row conection">
+                <div class="row sign-up">
+                    <div class="col-md-6 col-12">
+                        <div class="conection-right">
+                            <p>ایران کردیت همراه شماست!</p>
+                            <h2>همین حالا گیفت کارت پلی استیشن خود را خریداری کنید!</h2>
+                            <p>در ایران کردیت ثبت نام کنید و گیفت کارت خود را سفارش دهید.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="conection-left">
+                            <div class="sign-up-form">
+                                <div class="button">
+                                    <button class="button-right">
+                                        ثبت نام در ایران کردیت
+                                    </button>
+                                    <button class="button-left">
+                                        ثبت سفارش در ایران کردیت
+                                    </button>
+                                </div>
+                                <li>
+                                    <img src="./assets/img/shooting-star.png" alt="">
+                                    <span>در کمتر از ۵ دقیقه ثبت نام کن!</span>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row useful">
+                <li>
+                    <span>آیا اطلاعات این صفحه مفید بود ؟</span>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </li>
+            </div>
+            <div class="row opinion">
+                <div class="form">
+                    <div class="title">
+                        <div class="right">
+                            <span>درج نظر </span>
+                            <p>اولین نفر باشید که نظر می‌دهید.</p>
+                        </div>
+                        <div class="left">
+                            <span>با درج نظر امتیاز کسب کنید </span>
+                            <i class="far fa-smile"></i>
+                        </div>
+                    </div>
+                    <div class="inputs">
+                        <div class="right">
+                            <p>نام و نام خانوادگی</p>
+                            <input type="text" class="form-control" placeholder="نام خود را وارد نمایید (اجباری)" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="left">
+                            <p>ایمیل شما</p>
+                            <input type="email" class="form-control" placeholder="ایمیل خود را وارد نمایید (اجباری)" aria-label="email" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <textarea class="form-control" placeholder="متن پیام رسانی"></textarea>
+                    <button>
+                        ارسال پیام
+                    </button>
+                </div>
+            </div>
+            <div class="row comment">
+                <div class="comment-name">
+                    <img src="./assets/img/man.png" alt="">
+                    <span> مرتضی عزیزی</span>
+                    <span class="history">تیر 4, 1403 در 3:29 ب.ظ</span>
+                </div>
+                <div class="comment-opinion">
+                    <p>سلام پول گیفت کارت ازم کم شده ولی کد نیومده قبلا خرید کردم سریع می یومد الان نیومده چرا؟؟؟؟</p>
+                </div>
+                <div class="comment-reply">
+                    <button>پاسخ</button>
+                    <div class="user-opinion">
+                        <p>آیا این نظر برایتان مفید بود؟</p>
+                        <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
+                        <i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="row reply-comment">
+                    <div class="comment-name">
+                        <img src="./assets/img/woman.png" alt="">
+                        <span>مهسا نصیری نیا</span>
+                        <span class="history">تیر 4, 1403 در 3:29 ب.ظ</span>
+                    </div>
+                    <div class="comment-opinion">
+                        <p>سلام و احترام
+                            کاربر گرامی، لطفا اطلاعات خود را از طریق تیکت برای کارشناسان ما ارسال فرمایید تا در اولین فرصت مشکل را برطرف کرده و خدمات موردنظر را به شما ارائه دهند.
+                            پایدار باشید</p>
+                    </div>
+                    <div class="comment-reply">
+                        <button>پاسخ</button>
+                        <div class="user-opinion">
+                            <p>آیا این نظر برایتان مفید بود؟</p>
+                            <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
+                            <i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="support">
+                    <h5>۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</h5>
+                    <li>
+                        <span>تلفن پشتیبانی:</span> &ensp;
+                        <a href=""> 02126379917 </a> &ensp;
+                        <span>--</span>&ensp;
+                        <a href=""> 02126379918 </a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <!-- footer -->
+    <footer class="container-fluid footer">
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-3 col-sm-12 col-12">
+                    <div class="footer-item">
+                        <a href="index.php" title="ایران کردیت">
+                            <img class="logo-footer" src="assets/img/Logo.svg" alt="لوگو ایران کردیت">
+                        </a>
+                        <div class="footer-item-info">
+                            <div class="information">
+                                <ul>
+                                    <li><i class="fas fa-phone"></i><a href="tel:02126379917"> 02126379917 </a></li>
+                                    <li><i class="fas fa-phone"></i><a href="tel:02126379918"> 02126379918 </a></li>
+                                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@irancredits.com">
+                                        info@irancredits.com </a></li>
+                                    <li><i class="fas fa-location-dot"></i>آدرس : تهران، نیاوران، روبروی پارک نیاوران، اطلس مال، ورودی اداری، طبقه A1، واحد 22
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footer-item">
+                        <span class="footer-title"> لینک های مفید </span>
+                        <div class="footer-item-links">
+                            <ul>
+                                <li><a href="">خانه</a></li>
+                                <li><a href="">همکاری</a></li>
+                                <li><a href="">تماس با ما</a></li>
+                                <li><a href="">درباره ما</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footer-item">
+                        <span class="footer-title"> خدمات ایران کردیت </span>
+                        <ul>
+                            <li><a href=""> پرداخت های بین المللی </a></li>
+                            <li><a href=""> پرداخت شهریه دانشجویی </a></li>
+                            <li><a href="">تلگرام</a></li>
+                            <li><a href=""> افتتاح حساب حضوری و غیر حضوری </a></li>
+                            <li><a href=""> گیفت کارت </a></li>
+                            <li><a href=""> یوتیوب </a></li>
+                            <li><a href=""> کارت اعتباری فیزیکی و مجازی </a></li>
+                            <li><a href=""> خرید کالا از ترکیه </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <span class="footer-title">مجوز ها</span>
+                    <div class="row">
+                        <a referrerpolicy='origin' target='_blank'
+                        href='#'>
+                            <img referrerpolicy='origin' src="assets/img/E-Namad.png" alt="نماد اعتماد (اینماد)"
+                                style='cursor:pointer' code='aX1xtEdHgAbNb7GRDZX1TDeQackFg4sr'>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top">
+            <div class="col-12 text-center">
+                <p>تمامی حقوق مادی و معنوی این وب سایت متعلق به ایران کردیت می باشد. طراحی شده توسط
+                    <a href="https://doroosamooz.ir">شایان نماینده</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

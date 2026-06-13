@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Shayan Namayandeh">
+    <title>ایران کردیت</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+    <meta name="apple-mobile-web-app-title" content="Iran Credit">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/src/style.css">
+</head>
+<body>
+
+    <!-- navbar -->
+    <header>
+        <nav class="navbar navbar-expand-xl fixed-top custom-navbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6 right">
+                        <div class="logo align-items-lg-center">
+                            <a href="index.php" title="ایران کردیت">
+                                <img width="200" src="assets/img/Logo.svg" alt="ایران کردیت">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7 col-6">
+                        <div class="collapse navbar-collapse left flex-lg-row" id="navbarSupportedContent">
+                            <div class="top flex-lg-row">
+                                <ul class="navbar-nav items">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.php">خانه</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            لیست خدمات
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">پرداخت های بین المللی</a></li>
+                                            <li><a class="dropdown-item" href="#">پرداخت شهریه دانشجویی</a></li>
+                                            <li><a class="dropdown-item" href="#">افتتاح حساب حضوری و غیر حضوری</a></li>
+                                            <li><a class="dropdown-item" href="#">گیفت کارت</a></li>
+                                            <li><a class="dropdown-item" href="#">تلگرام</a></li>
+                                            <li><a class="dropdown-item" href="#">یوتیوب</a></li>
+                                            <li><a class="dropdown-item" href="#">کارت اعتباری فیزیکی و مجازی</a></li>
+                                            <li><a class="dropdown-item" href="#">خرید کالا از ترکیه</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">تماس با ما</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">درباره ما</a>
+                                    </li>
+                                </ul>
+                                <form class="form">
+                                    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    <input aria-label="Search" placeholder="جستجوی خدمات ، مقالات و...">
+                                </form>
+                            </div>
+                            <div class="bottom flex-lg-row">
+                                <div class="phone">
+                                    <a href="tel:02126379917">
+                                        <span>02126379917</span>
+                                        <i class="fa fa-phone"></i>
+                                    </a>
+                                </div>
+                                <div class="log-in">
+                                    <a target="_blank" title="ورود و ثبت نام در ایران کردیت" href="panel/login.php">
+                                        <span>ورود / ثبت نام</span>
+                                        <i class="fa-regular fa-user"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- navbar -->
+
+    <!-- slide navbar -->
+    <div class="slide-navbar fixed-top">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.php" title="ایران کردیت">
+                    <img width="200" src="assets/img/Logo.svg" alt="ایران کردیت">
+                </a>
+            </div>
+            <button class="menu-button ms-0" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+        <div class="dropdown" id="dropdownMenu">
+            <button class="close-button" onclick="toggleMenu()">&times;</button>
+            <div class="items">
+                <a href="index.php"> خانه </a>
+                <a href="#"> لیست خدمات </a>
+                <a href="#"> تماس با ما </a>
+                <a href="#"> درباره ما </a>
+            </div>
+            <form class="form">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input aria-label="Search-Mobile" placeholder="جستجوی خدمات ، مقالات و...">
+            </form>
+            <div class="phone">
+                <a href="tel:<?php echo getSetting('contact_phone0'); ?>">
+                    <span><?php echo getSetting('contact_phone0'); ?>02126379917</span>
+                    <i class="fa fa-phone"></i>
+                </a>
+            </div>
+            <div class="log-in">
+                <a target="_blank" title="ورود و ثبت نام" href="panel/login.php">
+                    <span>ورود / ثبت نام</span>
+                    <i class="fa-regular fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end slide navbar -->
+
+
+
+    <main>
+        <div class="container-fluid document">
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <div class="document-right">
+                        <a href="">دانستنی های گیفت مارت</a>
+                        <h3>معرفی 25 مورد از بهترین بازی‌های نینتندو سوییچ در ژانرهای مختلف</h3>
+                        <div class="avatar">
+                            <img src="./assets/img/woman.png" alt="">
+                            <p>النازسیفی</p>
+                            <p> انتشار:
+                                <span>یکشنبه،17فروردین 1404</span>
+                            </p>
+                        </div>
+                        <img class="first-img" src="./assets/img/The-best-Nintendo-Switch-games_11zon.webp" alt="عکس اول">
+                        <p>تصور کنید بعد از یک روز طولانی، کنسول نینتندو سوییچ را در دست گرفته‌اید و می‌خواهید خود را در دنیای یکی از بهترین بازی های نینتندو سوییچ غرق کنید؛ اما مطمئنا انتخاب از میان صدها عنوان فوق‌العاده، کار ساده‌ای نیست. نینتندو سوییچ با ارائه‌ بازی‌های انحصاری بی‌نظیر، گرافیک چشم‌نواز و گیم‌پلی منحصربه‌فرد، یکی از محبوب‌ترین کنسول‌های جهان محسوب می‌شود که تجربه‌ای متفاوت از بازی‌های ویدیویی را ارائه می‌دهد.</p>
+                        <p>از شاهکارهای کلاسیکی مانند The Legend of Zelda: Breath of the Wild گرفته تا عناوین مهیجی مانند Super Mario Odyssey و بازی‌های چندنفره‌ای همچون Super Smash Bros. Ultimate، این کنسول برای هر سلیقه‌ای بازی مناسبی دارد.
+                            <span> فرقی نمی‌کند که از کاربران مدل استاندارد باشید یا از دارندگان نسخه‌ نینتندو سوییچ اولد یا نینتندو سوییچ لایت؛ در هر صورت، طیف گسترده‌ای از بازی‌های متنوع در انتظار شماست.</span>
+                        </p>
+                        <p>اگر قصد دارید بهترین تجربه‌ی گیمینگ را روی این کنسول داشته باشید، پیشنهاد می‌کنیم برای دسترسی به نسخه‌های دیجیتال بازی‌ها، 
+                            <a href=""> خرید گیفت کارت نینتندو</a>
+                            را در نظر بگیرید. با استفاده از گیفت کارت، می‌توانید عناوین محبوب را از فروشگاه رسمی نینتندو تهیه کرده و بدون محدودیت از بازی‌های موردعلاقه‌ خود لذت ببرید.
+                        </p>
+                        <p>در این مقاله، قصد داریم ۲۵ مورد از بهترین بازی‌های نینتندو سوییچ در ژانرهای مختلف را معرفی کنیم تا بتوانید بر‌اساس سلیقه‌ خود، بهترین انتخاب را داشته باشید. اگر به دنبال بازی‌های هیجان‌انگیز، داستانی و ماجراجویانه برای کنسول نینتندو سوییچ هستید، ادامه‌ این مطلب را از دست ندهید.</p>
+                        <div class="content">
+                            <img src="./assets/img/document.png" alt="">
+                            <a href="">فهرست محتوا</a>
+                        </div>
+                        <div class="game">
+                            <h4>1. بازی The Legend of Zelda: Breath of the Wild</h4>
+                            <div class="box">
+                                <table>
+                                    <tr>
+                                        <th>ژانر</th>
+                                        <td>مسابقه‌ای، چند نفره</td>                                    
+                                    </tr>
+                                    <tr>
+                                        <th>شرکت سازنده </th>                                    
+                                        <td>نینتندو</td>
+                                    </tr>
+                                    <tr>
+                                        <th>سال معرفی </th>
+                                        <td>2017</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>نینتندو با عرضه‌ The Legend of Zelda: Breath of the Wild استانداردهای جدیدی را برای بازی‌های جهان‌باز تعریف کرد. این بازی که از محبوب‌ترین و بهترین بازی های نینتندو سوییچ محسوب می‌شود، شما را در دنیای پهناور هایرول (Hyrule) قرار می‌دهد؛ جایی‌که آزادی بی‌نظیری برای اکتشاف، مبارزه و حل معماها خواهید داشت.</p>
+                            <br>
+                            <p>یکی از برجسته‌ترین ویژگی‌های این بازی، طراحی فیزیک‌محور و تعاملی محیط است؛ شما می‌توانید به روش‌های خلاقانه‌ای با دنیای اطراف ارتباط برقرار کرده، از دیوارها بالا بروید، روی سپرهای خود سر خورده یا حتی از روش‌های غیرمستقیم برای شکست‌دادن دشمنان استفاده کنید. سیستم مبارزات بازی، امکان استفاده از انواع سلاح‌ها و جادوهای متنوع را به شما می‌دهد. همچنین، هر دشمن، نیازمند استراتژی خاصی برای شکست‌دادن است.</p>
+                            <br>
+                            <p>این بازی، یک داستان عمیق و احساسی دارد که با پیشروی در بازی، شخصیت‌های کلیدی و تاریخچه‌ پادشاهی هایرول را بیشتر درک خواهید کرد؛
+                                <span> اگر از علاقه‌مندان به ماجراجویی‌های حماسی هستید، این بازی یکی از بهترین بازی های انحصاری نینتندو سوییچ است که نباید از دست بدهید.</span>
+                            </p>
+                            <div class="game-img">
+                                <img src="./assets/img/The-Legend-of-Zelda-Breath-of-the-Wild.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="game">
+                            <h4>2. بازی Mario Kart 8 Deluxe</h4>
+                            <div class="box">
+                                <table>
+                                    <tr>
+                                        <th>ژانر</th>
+                                        <td>مسابقه‌ای، چند نفره</td>                                    
+                                    </tr>
+                                    <tr>
+                                        <th>شرکت سازنده </th>                                    
+                                        <td>نینتندو</td>
+                                    </tr>
+                                    <tr>
+                                        <th>سال معرفی </th>
+                                        <td>2017</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>اگر به بازی‌های رقابتی و سرگرم‌کننده علاقه دارید، Mario Kart 8 Deluxe یکی از بهترین بازی های نینتندو سوییچ به‌حساب‌ می‌آید که تجربه‌ یک رقابت هیجان‌انگیز را به شما ارائه می‌دهد. این نسخه، نسخه‌ بهبود یافته و کامل شده‌ای از Mario Kart 8 است که در ابتدا برای Wii U عرضه شد و در سوییچ با محتواهای جدید و بهینه‌سازی‌های گسترده بازگشته است.</p>
+                            <br>
+                            <p>این بازی بیش از ۴۸ مسیر مسابقه‌ای خواهد داشت که برخی از آن‌ها از نسخه‌های کلاسیک این مجموعه الهام گرفته‌اند. شخصیت‌های متنوعی از دنیای ماریو، مانند ماریو، لوئیجی، پرنسس پیچ و یوشی در بازی حضور دارند که هرکدام ویژگی‌های خاص خود را دارند. قابلیت Anti-Gravity که در این نسخه معرفی شده است، امکان مسابقه دادن روی دیوارها و سقف‌ها را فراهم خواهد کرد که هیجان مسابقات را دوچندان می‌کند.</p>
+                            <br>
+                            <p>یکی از مهم‌ترین نقاط قوت این بازی، بخش چندنفره‌ آنلاین و محلی است که به شما اجازه می‌دهد تا با دوستان خود یا سایر بازیکنان از سراسر جهان رقابت کنید.
+                                <span>اگر به دنبال یک بازی سرگرم‌کننده برای جمع‌های دوستانه هستید، Mario Kart 8 Deluxe گزینه‌ای ایده‌آل برای شما خواهد بود.</span>
+                            </p>
+                            <div class="game-img">
+                                <img src="./assets/img/Mario-Kart-8-Deluxe.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="game">
+                            <h4>3. بازی Animal Crossing: New Horizons</h4>
+                            <div class="box">
+                                <table>
+                                    <tr>
+                                        <th>ژانر</th>
+                                        <td>شبیه‌ساز زندگی، ماجراجویی </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <th>شرکت سازنده </th>                                    
+                                        <td>نینتندو</td>
+                                    </tr>
+                                    <tr>
+                                        <th>سال معرفی </th>
+                                        <td>2020</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>Horizons یکی از بهترین بازی های نینتندو سوییچ برای افرادی است که به بازی‌های آرامش‌بخش و خلاقانه علاقه دارند. این عنوان، بازیکنان را به یک جزیره‌ متروکه می‌برد و وظیفه‌ آن‌ها این است که از صفر، این جزیره را به یک بهشت شخصی‌سازی‌شده تبدیل کنند.</p>
+                            <br>
+                            <p>در این بازی، شما می‌توانید خانه‌ خود را بسازید، با ساکنان جزیره دوست شوید، زمین‌های کشاورزی داشته باشید، ماهیگیری کنید و… . سیستم تغییر فصول و رویدادهای درون بازی نیز تجربه‌ جدیدی را در طول سال ارائه می‌دهد</p>
+                            <br>
+                            <p>یکی از ویژگی‌های منحصر به فرد Animal Crossing: New Horizons، امکان بازی چندنفره است؛ شما می‌توانید دوستان خود را به جزیره‌تان دعوت کرده یا به جزیره‌ آن‌ها سفر داشته باشید و آیتم‌های مختلف را مبادله کنید. 
+                                <span> اگر به دنبال یک بازی لذت‌بخش و کم‌استرس هستید، این عنوان یکی از بهترین بازی های نینتندو سوییچ لایت به‌شمار می‌رود که می‌توانید روی آن حساب کنید.</span>
+                            </p>
+                            <div class="game-img">
+                                <img src="./assets/img/Animal-Crossing-New-Horizons-1.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="game">
+                            <h4>4. بازی Metroid Dread</h4>
+                            <div class="box">
+                                <table>
+                                    <tr>
+                                        <th>ژانر</th>
+                                        <td>اکشن، ماجراجویی، پلتفرمر</td>                                    
+                                    </tr>
+                                    <tr>
+                                        <th>شرکت سازنده </th>                                    
+                                        <td>نینتدو، MercurySteam </td>
+                                    </tr>
+                                    <tr>
+                                        <th>سال معرفی </th>
+                                        <td>2021</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>Metroid Dread، یکی از بهترین بازی های نینتندو سوییچ برای عاشقان سبک مترویدوانیاست. این بازی، شما را در نقش ساموس آران (Samus Aran) قرار می‌دهد که در حال کاوش در یک سیاره‌ ناشناخته است و با دشمنان بیگانه و موانع خطرناک روبه‌رو می‌شود.</p>
+                            <br>
+                            <p>گیم‌پلی این بازی ترکیبی از اکشن سریع، حل معماها و اکتشاف محیط‌های پیچیده است. مکانیک‌های جدید مانند حرکت سریع (Flash Shift) و قابلیت Cloak که ساموس را نامرئی می‌کند، به شما امکان می‌دهد تا استراتژی‌های جدیدی را جهت مقابله با دشمنان به‌کار بگیرید.</p>
+                            <br>
+                            <p>داستان بازی نیز با روایت مرموز و جذاب خود، شما را به کشف حقیقتی پنهان درباره‌ گذشته‌ ساموس دعوت می‌کند؛
+                                <span>اگر از طرفداران سری Metroid هستید یا به بازی‌های اکشن-ماجراجویی چالش‌برانگیز علاقه دارید، Metroid Dread یکی از بهترین بازی‌های انحصاری نینتندو سوییچ به‌شمارمی‌رود که نباید از دست بدهید.</span>
+                            </p>
+                            <div class="game-img">
+                                <img src="./assets/img/Metroid-Dread.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="game">
+                            <h4>5. بازی Super Smash Bros. Ultimate</h4>
+                            <div class="box">
+                                <table>
+                                    <tr>
+                                        <th>ژانر</th>
+                                        <td>مبارزه‌ای، چند نفره</td>                                    
+                                    </tr>
+                                    <tr>
+                                        <th>شرکت سازنده </th>                                    
+                                        <td>نینتندو</td>
+                                    </tr>
+                                    <tr>
+                                        <th>سال معرفی </th>
+                                        <td>2018</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>Super Smash Bros. Ultimate یک بازی مبارزه‌ای فوق‌العاده است که بیش از ۷۰ شخصیت محبوب از دنیای بازی‌های ویدیویی را در یک نبرد حماسی گرد هم آورده است. از ماریو و لینک گرفته تا پیکاچو و حتی شخصیت‌هایی از بازی‌های غیر نینتندویی مانند سفیراث و جوکر، این عنوان یکی از کامل‌ترین بازی‌های مبارزه‌ای تاریخ محسوب می‌شود.</p>
+                            <br>
+                            <p>گیم‌پلی بازی به‌گونه‌ای طراحی شده است که هم برای بازیکنان حرفه‌ای و هم تازه‌واردها جذاب باشد. سیستم Combo و Special Moves هر شخصیت منحصربه‌فرد است و یادگیری آن‌ها نیازمند تمرین و استراتژی خواهد بود.</p>
+                            <br>
+                            <p>علاوه‌بر حالت مبارزات آنلاین، بازی دارای بخش داستانی گسترده‌ای به‌نام World of Light است که در آن باید برای نجات شخصیت‌های مختلف از دست دشمنان تلاش کنید.
+                                <span> اگر به دنبال یک بازی چند نفره‌ مهیج هستید، Super Smash Bros. Ultimate یکی از بهترین بازی های نینتندو سوییچ اولد برای تجربه‌ رقابت‌های جذاب با دوستانتان خواهد بود.</span>
+                            </p>
+                            <div class="game-img">
+                                <img src="./assets/img/Super-Smash-Bros.-Ultimate-1.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="title">
+                                <h4>سوالات متداول</h4>
+                                <li>
+                                    <a href="">مشاوره رایگان</a>
+                                    <i class="fa-regular fa-newspaper"></i>
+                                </li>
+                            </div>
+                            <div class="first">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                         نینتدو، سوییچ چیست؟
+                                        </button>
+                                      </h2>
+                                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            نینتندو سوییچ یک کنسول بازی ترکیبی از شرکت نینتندو است که می‌توان از آن هم به‌عنوان کنسول خانگی و هم کنسول دستی (Portable) استفاده کرد. این دستگاه از سال ۲۰۱۷ تاکنون یکی از محبوب‌ترین کنسول‌های بازی در جهان محسوب می‌شود.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item last">
+                                      <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            معروف‌ترین بازی نینتندو سوییچ چیست؟
+                                        </button>
+                                      </h2>
+                                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            برخی از معروف‌ترین بازی‌های نینتندو سوییچ شامل The Legend of Zelda: Breath of the Wild، Mario Kart 8 Deluxe، Super Mario Odyssey و Animal Crossing: New Horizons هستند که هرکدام در سبک خود جزو برترین عناوین این کنسول محسوب می‌شوند.
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="avatar justify-content-between">
+                            <div class="right">
+                                <img src="./assets/img/woman.png" alt="">
+                                <p>النازسیفی</p>
+                                <p> تعداد بازدید:
+                                    <span>85</span>
+                                </p>
+                            </div>
+                            <div class="star">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="share">
+                            <div class="right">
+                                <a href="">اشتراک گذاری مطلب</a>
+                            </div>
+                            <div class="left">
+                                <a href="">کپی کردن مطلب</a>
+                                <a href=""><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="opinion">
+                            <div class="title">
+                                <div class="right">
+                                    <span>درج نظر </span>
+                                    <p>اولین نفر باشید که نظر می‌دهید.</p>
+                                </div>
+                                <div class="left">
+                                    <span>با درج نظر امتیاز کسب کنید </span>
+                                    <i class="far fa-smile"></i>
+                                </div>
+                            </div>
+                            <div class="inputs">
+                                <div class="right">
+                                    <p>نام و نام خانوادگی</p>
+                                    <input type="text" class="form-control" placeholder="نام خود را وارد نمایید (اجباری)" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="left">
+                                    <p>ایمیل شما</p>
+                                    <input type="email" class="form-control" placeholder="ایمیل خود را وارد نمایید (اجباری)" aria-label="email" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <textarea class="form-control" placeholder="متن پیام رسانی"></textarea>
+                            <button>
+                                ارسال پیام
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="document-left">
+                        <div class="search">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <input type="text" placeholder="جستجوی مقالات">
+                        </div>
+                        <div class="quick">
+                            <h4>دسترسی سریع</h4>
+                            <div class="links">
+                                <a href="">نقد کردن درآمد ارزی</a>
+                                <a href="">خرید vps</a>
+                                <a href="">خرید از ترندیول</a> <br>
+                                <a href="">پرداخت پی پال</a>
+                                <a href="">خرید گیفت کارت</a>
+                                <a href="">خرید ارز دیجیتال</a> <br>
+                                <a href="">خرید شماره مجازی</a>
+                            </div>
+                        </div>
+                        <div class="both">
+                            <div class="suggest">
+                                <h4>مطالب مرتبط پیشنهادی</h4>
+                                <div class="box">
+                                    <img src="./assets/img/windows.webp" alt="">
+                                    <a href="">خرید گیفت کارت مایکروسافت</a>
+                                </div>
+                                <div class="box">
+                                    <img src="./assets/img/How-to-update-Google-Play-Store-90x90.webp" alt="">
+                                    <a href="">آپدیت گوگل پلی استور Google play + روش رفع مشکلات بروزرسانی</a>
+                                </div>
+                                <div class="box">
+                                    <img src="./assets/img/riotacces-90x90.webp" alt="">
+                                    <a href="">گیفت کارت ریوت اکسس چیست؟</a>
+                                </div>
+                                <div class="box">
+                                    <img src="./assets/img/best-Xbox-DNS-90x90.webp" alt="">
+                                    <a href="">بهترین دی ان اس ایکس باکس برای گیمرها؛ خداحافظی با دانلود کند!</a>
+                                </div>
+                            </div>
+                            <div class="banner">
+                                <img src="./assets/img/banner-giftcard.webp" alt="">
+                                <img src="./assets/img/banner-payments.webp" alt="">
+                                <img src="./assets/img/banner-shopping.webp" alt="">
+                                <img src="./assets/img/banner-wallets.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="news">
+                    <p>پیشنهادی سردبیر ایرانیکارت</p>
+                    <h3>برگزیده اخبار و مقالات</h3>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="top">
+                                <img src="./assets//img/what-is-gift-card-415x285.webp" alt="">
+                            </div>
+                            <div class="bottom">
+                                <li>
+                                    <i class="fa-regular fa-newspaper"></i>
+                                    <a href=""> دانستنی های گیفت کارت</a>
+                                </li>
+                                <span>گیفت کارت چیست؟ کاربرد و انواع گیفت کارت</span>       
+                                <p>گیفت کارت چیست؟ این کارت‌ها چه کاربردی دارند؟ چرا خرید گیفت کارت تا این حد اهمیت پیدا کرده است؟ خرید از فروشگاه‌های خارجی و پرداخت‌های بین‌المللی به دلیل تحریم ایران...</p>                     
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="top">
+                                <img src="./assets/img/what-0is-apple-gift-card-415x285.webp" alt="">
+                            </div>
+                            <div class="bottom">
+                                <li>
+                                    <i class="fa-regular fa-newspaper"></i>
+                                    <a href=""> دانستنی های گیفت کارت</a>
+                                </li>
+                                <span>گیفت کارت اپل چیست؟ آشنایی0تا100با گیفت کارت آیتونز</span>
+                                <p>حتما تاکنون برای شما هم پیش آمده که بخواهید از اپ استور خرید کنید، اما به دلیل تحریم‌های موجود و عدم دسترسی به حساب‌های بین المللی برای پرداخت هزینه آن...</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="top">
+                                <img src="./assets/img/get-free-Apple-gift-card-415x285.webp" alt="">
+                            </div>
+                            <div class="bottom">
+                                <li>
+                                    <i class="fa-regular fa-newspaper"></i>
+                                    <a href=""> دانستنی های گیفت کارت</a>
+                                </li>
+                                <span>آموزش دریافت گیفت کارت رایگان اپل با سایت و اپلیکیشن</span>    
+                                <p>خرید گیفت کارت یا استفاده از گیفت کارت رایگان اپل از بهترین راه‌ها برای استفاده از تمام خدماتی است که کمپانی Apple برای تبلت، تلفن همراه و لپ‌تاپ‌هایش ارائه می‌دهد....</p>                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <!-- footer -->
+    <footer class="container-fluid footer">
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-3 col-sm-12 col-12">
+                    <div class="footer-item">
+                        <a href="index.php" title="ایران کردیت">
+                            <img class="logo-footer" src="assets/img/Logo.svg" alt="لوگو ایران کردیت">
+                        </a>
+                        <div class="footer-item-info">
+                            <div class="information">
+                                <ul>
+                                    <li><i class="fas fa-phone"></i><a href="tel:02126379917"> 02126379917 </a></li>
+                                    <li><i class="fas fa-phone"></i><a href="tel:02126379918"> 02126379918 </a></li>
+                                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@irancredits.com">
+                                        info@irancredits.com </a></li>
+                                    <li><i class="fas fa-location-dot"></i>آدرس : تهران، نیاوران، روبروی پارک نیاوران، اطلس مال، ورودی اداری، طبقه A1، واحد 22
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footer-item">
+                        <span class="footer-title"> لینک های مفید </span>
+                        <div class="footer-item-links">
+                            <ul>
+                                <li><a href="">خانه</a></li>
+                                <li><a href="">همکاری</a></li>
+                                <li><a href="">تماس با ما</a></li>
+                                <li><a href="">درباره ما</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footer-item">
+                        <span class="footer-title"> خدمات ایران کردیت </span>
+                        <ul>
+                            <li><a href=""> پرداخت های بین المللی </a></li>
+                            <li><a href=""> پرداخت شهریه دانشجویی </a></li>
+                            <li><a href="">تلگرام</a></li>
+                            <li><a href=""> افتتاح حساب حضوری و غیر حضوری </a></li>
+                            <li><a href=""> گیفت کارت </a></li>
+                            <li><a href=""> یوتیوب </a></li>
+                            <li><a href=""> کارت اعتباری فیزیکی و مجازی </a></li>
+                            <li><a href=""> خرید کالا از ترکیه </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <span class="footer-title">مجوز ها</span>
+                    <div class="row">
+                        <a referrerpolicy='origin' target='_blank'
+                        href='#'>
+                            <img referrerpolicy='origin' src="assets/img/E-Namad.png" alt="نماد اعتماد (اینماد)"
+                                style='cursor:pointer' code='aX1xtEdHgAbNb7GRDZX1TDeQackFg4sr'>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top">
+            <div class="col-12 text-center">
+                <p>تمامی حقوق مادی و معنوی این وب سایت متعلق به ایران کردیت می باشد. طراحی شده توسط
+                    <a href="https://doroosamooz.ir">شایان نماینده</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
